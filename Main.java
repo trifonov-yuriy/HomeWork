@@ -11,7 +11,7 @@ public class Main
     private static String[] answers; //Ответы
 
     private static int balls; //Количество правильных ответов
-    private static String[] InitDesctiptions()
+    private static String[] initDesctiptions()
     {
         String[] desctiptions = new String[]
         {
@@ -46,7 +46,7 @@ public class Main
         questions[2][0] = "1) float";
         questions[2][1] = "2) double";
         questions[2][2] = "3) int";
-        questions[2][3] = "char";
+        questions[2][3] = "4) char";
 
         return questions;
     }
@@ -87,7 +87,7 @@ public class Main
     }
     public static void main(String[] args)
     {
-        descriptions = InitDesctiptions();
+        descriptions = initDesctiptions();
         questions = initQuestions();
         answers = initAnswers();
         startTest();
