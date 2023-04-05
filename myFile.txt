@@ -1,0 +1,6 @@
+{
+"firstName": "Pavel",
+"lastName": "Pavlov",
+"age": 24,
+"phoneNumber": "893434543231"
+}
