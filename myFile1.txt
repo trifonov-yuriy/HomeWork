@@ -1,0 +1,4 @@
+{
+"address": "ul. 50 let oktyabrya",
+"name": "VTB"
+}
