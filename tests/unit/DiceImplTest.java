@@ -3,9 +3,11 @@ package tests.unit;
 import assertions.Assertions;
 import game.*;
 
+import java.util.Random;
+
 public class DiceImplTest
 {
-    public void rollTest()
+    public void testRollForRange()
     {
         String scenario = "Тест метода Dice.roll()";
         Dice dice = new DiceImpl();
@@ -24,4 +26,12 @@ public class DiceImplTest
             }
         }
     }
+
+    public int rollForGameTest()
+    {
+        return new Random().nextInt(5) + 1;
+    }
+
+
+
 }
