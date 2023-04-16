@@ -9,7 +9,7 @@ public class DiceImplTest
 {
     public void testRollForRange()
     {
-        String scenario = "Тест метода Dice.roll()";
+        String scenario = "Тест метода Dice.roll() (Проверка на диапазон [1-6]) ";
         Dice dice = new DiceImpl();
         for(int i = 0; i < 30; i++)
         {
