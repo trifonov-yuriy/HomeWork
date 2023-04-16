@@ -1,23 +1,21 @@
-import java.util.Base64;
-import java.util.Scanner;
-// Зарегистрироваться на github.com
-// Установить git
-// Установить JDK и среду разработки
-// Открыть данный класс в IDE
-// Скомпилировать данный класс с помощью команды javac.
-// Запустить программу на выполнение с помощью команды java
-// Запустить программу на выполнение с помощью среды разработки
-// Когда программа запросит - введите свое имя латиницей
-// Сделайте pull-request с программой.
-// Отправить в чат задания ссылку на pull-request
-public class HomeWork 
-{
-    public static void main(String[] args) 
+import game.*;
+import tests.*;
+
+public class HomeWork {
+
+    /*
+        Заготовка для ДЗ представляет собой игру в кости.
+        При вызове game.playGame(), два игрока кидают кости.
+        Выигрывает игрок, у кого результат (1-6) больше
+
+        Написать тесты (минимум 4) на классы DiceImpl и Game.
+        Тесты должны найти не менее двух ошибок.
+
+        Информацию о пройденном тесте предлагается выводить в System.out, а об упавшем в System.err
+     */
+    public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter you full name");
-        String fullName = sc.nextLine();
-        String encodedFullName = Base64.getEncoder().encodeToString(fullName.getBytes());
-        System.out.println("Program result: " + encodedFullName);
+
     }
+    
 }
