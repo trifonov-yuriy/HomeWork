@@ -24,7 +24,15 @@ public class Assertions
     {
         if(expected < actualMin || expected > actualMax)
         {
-            throw new AssertionError(String.format("Expected %s is not in the range [%s-%s]", expected, actualMin, actualMax));
+            throw new AssertionError(String.format("Expected %s in the range [%s-%s]", expected, actualMin, actualMax));
+        }
+    }
+
+    public static void assertNotEquals(int expected, int actual)
+    {
+        if(expected == actual)
+        {
+            throw new AssertionError(String.format("Expected \"%s\" != \"%s\"", expected, actual));
         }
     }
 
