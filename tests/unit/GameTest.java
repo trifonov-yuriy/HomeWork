@@ -60,26 +60,18 @@ public class GameTest
         }
     }
 
-    public void testPlayGameForPlayerResult(Player player1, Player player2)
+    public void testPlayGameForPlayerNull(Player player1, Player player2)
     {
-        String scenario = "Тест на метод Game.playGame() (проверка на равенство очков) ";
-
-        int player1Result = diceImplTest.rollForGameTest();
-        int player2Result = diceImplTest.rollForGameTest();
-
-        try
-        {
-            Assertions.assertNotEquals(player1Result, player2Result);
+        String scenario = "Тест на метод Game.playGame() при player = null";
+        Game game = new Game(new DiceImpl(), new GameWinnerConsolePrinter());
+        try {
+            game.playGame(player1, player2);
         }
-        catch (AssertionError e)
+        catch (NullPointerException e)
         {
             System.err.println(String.format("%s не пройден: %s", scenario, e.getMessage()));
             return;
         }
-
-        Player winner = (player1Result > player2Result)? player1: player2;
-        winnerPrinter.printWinner(winner);
-
 
         System.out.println(String.format("%s пройден", scenario));
     }
