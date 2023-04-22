@@ -12,7 +12,8 @@ public class AllTests
         gameTest.testPlayGameForDiceNull();
         gameTest.testPlayGameForGameWinnerPrinterNull();
         gameTest.testGameWinnerConsolePrinterForPlayerNull();
-        gameTest.testPlayGameForPlayerResult(new Player("Игорь"), new Player("Вася"));
+        gameTest.testPlayGameForPlayerNull(new Player("Игорь"), null);
+        gameTest.testPlayGameForPlayerNull(null, new Player("Вася"));
     }
 
 }
