@@ -1,0 +1,203 @@
+<html>
+<head>
+	<!-- <meta charset = "utf-8" /> -->
+	<title> Изучение javascript </title>
+	<link rel = "stylesheet" href = "styles.css">
+	<script type = "text/javascript">
+		var middleAge = 0;
+		var studentsCounter = 0;
+		function valid(form) 
+		{
+			//Функция для обработки формы
+			var messae = "";
+			var fail = false;
+			if(checkForm()) 
+			{
+				addStudent(form.name.value, form.birthDay.value, form.gender.value);
+			}
+		}
+		
+		function checkForm() 
+		{
+			var check = true;
+			var checkList = ["name", "birthDay"];
+			checkList.forEach((element)=>
+			{
+				var str = form[element].value;
+				if(isEmpty(str)) 
+				{
+					document.getElementById(element + "Error").style.display = "";
+					check = false;
+				}
+				else 
+				{
+					document.getElementById(element + "Error").style.display = "none";
+				}
+			});
+			return check;
+		}
+		
+		function isEmpty(str) 
+		{
+			if(str.trim() == '') 
+				return true;
+			return false;
+			
+		}
+		
+		function addStudent(name, birthDay, gender) 
+		{
+			var studentInfo = document.createElement("tr");
+			studentInfo.innerHTML += "<td>" + name + "</td>";
+			studentInfo.innerHTML += "<td>" + getGender(gender) + "</td>";
+			studentInfo.innerHTML += "<td>" + getDate(birthDay) + "</td>";
+			studentInfo.innerHTML += "<td>" + getAge(birthDay) + "</td>";
+			
+			document.getElementById("emptyString").before(studentInfo);
+			studentsCounter++;
+			middleAge = (middleAge + getAge(birthDay)) / studentsCounter;
+			document.getElementById("middleAge").innerHTML = Math.round(middleAge);
+		}
+		
+		
+		function dateFormat(date) 
+		{
+			if((date.getDate() / 10) < 1) 
+			{
+				return "0" + date.getDate();
+			}
+			return date.getDate();
+		}
+		
+		function monthFormat(date) 
+		{
+			if((date.getMonth() + 1) / 10 < 1) 
+			{
+				return "0" + (date.getMonth() + 1);
+			}
+			return (date.getMonth() + 1);
+		}
+		
+		function getGender(gender) 
+		{
+			if(gender == "male") 
+			{
+				return "Мужчина";
+			}
+			return "Женщина";
+		}
+		
+		function getDate(birthDay) 
+		{
+			var date = new Date(birthDay);
+			return dateFormat(date) + '.'
+			+ monthFormat(date) + '.'
+			+ date.getFullYear();
+			
+		}
+		
+		
+		function getAge(birthDay) 
+		{
+			var date = new Date(birthDay);
+			var dateNow = new Date();
+			var diff = Math.abs(dateNow - date);
+			return Math.floor (diff / (1000*60*60*24*365));
+		}
+		
+	
+	</script>
+</head>
+
+<body>
+	<form action = "" method = "post" name = "test" id = "form">
+		<table>
+			<tr>
+				<td align = left style = "width: 60%"> 
+					Имя студента 
+				</td>
+
+				<td align = right>
+					<input type = "text" name = "name" placeholder = "Имя студента" id = "name" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class = "Error" id = "nameError" style = "display: none">
+						<p style = "color: red"> Имя студента не заполнено! </p>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td align = left>
+					Пол
+				</td>
+			
+				<td align = right>
+					<select id = "gender" style = "width:100%">
+						<option value = "male"> Мужчина </option>
+						<option value = "female"> Женщина </option>
+					</select> <br /> <br />
+				</td>
+			</tr>
+			
+			<tr>
+				<td align = left>
+					Дата рождения
+				</td>
+			
+				<td align = right>
+					<input type = "date" name = "birthDay" placeholder = "Дата рождения" id = "birthDay" style = "width:100%" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class = "Error" id = "birthDayError" style = "display: none">
+						<p style = "color: red"> Дата рождения не заполнена! </p>
+					</div>
+				</td>
+			</tr>
+		
+		</table>
+
+		<input type = "button" name = "submit" value = "Добавить" onclick = "valid(document.getElementById('form'))" />
+
+	</form>
+	
+	<div class = "studentsData">
+		<table border = "1" style = "width:100%">
+		<caption> Данные студентов </caption>
+		<tr>
+			<th>
+				Имя студента
+			</th>
+			<th>
+				Пол
+			</th>
+			<th>
+				Дата рождения
+			</th>	
+			<th>
+				Возраст
+			</th>				
+		</tr>
+		<tr style = "height: 20px" id = "emptyString"> </tr>
+		<tr>
+			<th colspan = "3" >
+				Средний возраст
+			</th>
+			<td id = "middleAge">
+					
+			</td>			
+		</tr>			
+			
+			
+		</table>
+		
+	</div>
+	
+
+</body>
+
+
+</html>
