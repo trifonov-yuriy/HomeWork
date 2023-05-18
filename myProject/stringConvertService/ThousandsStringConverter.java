@@ -1,19 +1,19 @@
 package myProject.stringConvertService;
 
-public class BillionsStringConverter implements StringConverter
+public class ThousandsStringConverter implements StringConverter
 {
     public String getString1()
     {
-        return "миллиардов ";
+        return "тысяч ";
     }
 
     public String getString2()
     {
-        return "миллиард ";
+        return "тысяча ";
     }
 
     public String getString3()
     {
-        return "миллиарда ";
+        return "тысячи ";
     }
 }
