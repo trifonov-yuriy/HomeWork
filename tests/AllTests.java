@@ -1,8 +1,10 @@
 package tests;
 
+import myProject.currencyService.Currency;
 import myProject.currencyService.AmericanCurrency;
 import myProject.currencyService.RussianCurrency;
 import myProject.logicService.ILogic;
+import myProject.inputOutputService.IPrinter;
 import tests.unit.CurrencyTest;
 import tests.unit.LogicTest;
 import tests.unit.PrinterTest;
@@ -11,7 +13,7 @@ public class AllTests
 {
     public static void main(String[] args)
     {
-        CurrencyTest currencyTest = new CurrencyTest(new RussianCurrency(), "рубль");
+        Currency currencyTest = new CurrencyTest(new RussianCurrency(), "рубль");
         currencyTest.getString(1);
 
         currencyTest = new CurrencyTest(new RussianCurrency(), "рубля");
@@ -34,7 +36,7 @@ public class AllTests
         currencyTest.getString(5);
         currencyTest.getString(19);
 
-        PrinterTest printerTest = new PrinterTest("рублей");
+        IPrinter printerTest = new PrinterTest("рублей");
         printerTest.getEndString(12, new RussianCurrency());
 
         printerTest = new PrinterTest("ОШИБКА ОПРЕДЕЛЕНИЯ ВАЛЮТЫ:");
