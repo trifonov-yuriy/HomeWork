@@ -1,10 +1,10 @@
 package myProject.logicService;
 
 import myProject.currencyService.Currency;
+import myProject.currencyService.Mode;
 
 public interface ILogic
 {
-    String getString(int digit); //Получение строки
-    int remainderOfDivision(int digit); //Остаток от деления
+    String getString(double digit); //Получение строки
 
 }
