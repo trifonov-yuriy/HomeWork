@@ -1,8 +1,5 @@
 package myProject;
-import myProject.currencyService.AmericanCurrency;
-import myProject.currencyService.Currency;
-import myProject.currencyService.EnglandCurrency;
-import myProject.currencyService.RussianCurrency;
+import myProject.currencyService.*;
 import myProject.inputOutputService.IPrinter;
 import myProject.inputOutputService.IReader;
 import myProject.inputOutputService.Printer;
@@ -15,7 +12,8 @@ import java.util.InputMismatchException;
 public class Starter implements IStarter
 {
     private Currency currency;
-    public void start(String country) throws InputMismatchException, NullPointerException
+
+    private void getCurrency(String country)
     {
         switch(country)
         {
@@ -39,14 +37,15 @@ public class Starter implements IStarter
                 currency = new RussianCurrency();
             } break;
         }
+    }
 
+    public void start(String country) throws InputMismatchException, NullPointerException
+    {
+        getCurrency(country);
         IReader reader = new Reader();
-        int digit = reader.readFromUser(); //Ввод числа пользователем
-        ILogic logic = new Logic();
-        IPrinter printer = new Printer();
+        double digit = reader.readFromUser(); //Ввод числа пользователем
+        ILogic logic = new Logic(currency);
         String myString = logic.getString(digit);
-        myString += printer.getEndString(logic.remainderOfDivision(digit), currency);
         System.out.println(myString);
-
     }
 }
