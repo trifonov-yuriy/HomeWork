@@ -16,7 +16,7 @@ public class TensStringConverter
         map.put(12, "двенадцать ");
         map.put(13, "тринадцать ");
         map.put(14, "четырнадцать ");
-        map.put(15, "пятьнадцать ");
+        map.put(15, "пятнадцать ");
         map.put(16, "шестьнадцать ");
         map.put(17, "семьнадцать ");
         map.put(18, "восемьнадцать ");
