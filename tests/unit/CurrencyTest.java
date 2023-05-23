@@ -1,11 +1,7 @@
 package tests.unit;
 
 import assertions.Assertions;
-import myProject.currencyService.AmericanCurrency;
-import myProject.currencyService.Currency;
-import myProject.currencyService.EnglandCurrency;
-import myProject.currencyService.RussianCurrency;
-import myProject.logicService.Logic;
+import myProject.currencyService.*;
 
 public class CurrencyTest implements Currency
 {
@@ -17,18 +13,34 @@ public class CurrencyTest implements Currency
         this.expected = expected;
     }
 
-    public String getString(int value)
+    public String getStringBasic(int value)
     {
         try
         {
-            String text = currency.getString(value);
+            String text = currency.getStringBasic(value);
             Assertions.assertEquals(expected, text);
-            System.out.println(String.format("CurrencyTest.getString(%s) пройден", value));
+            System.out.println(String.format("CurrencyTest.getStringgBasic(%s) пройден", value));
             return "success";
         }
         catch (AssertionError e)
         {
-            System.err.println(String.format("CurrencyTest.getString(%s) не пройден: %s", value, e.getMessage()));
+            System.err.println(String.format("CurrencyTest.getStringgBasic(%s) не пройден: %s", value, e.getMessage()));
+            return "error!";
+        }
+    }
+
+    public String getStringAdditional(int value)
+    {
+        try
+        {
+            String text = currency.getStringAdditional(value);
+            Assertions.assertEquals(expected, text);
+            System.out.println(String.format("CurrencyTest.getStringAdditional(%s) пройден", value));
+            return "success";
+        }
+        catch (AssertionError e)
+        {
+            System.err.println(String.format("CurrencyTest.getStringAdditional(%s) не пройден: %s", value, e.getMessage()));
             return "error!";
         }
     }
